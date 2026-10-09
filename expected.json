@@ -1,0 +1,642 @@
+[
+ {
+  "card": "spacing",
+  "args": [
+   300,
+   3,
+   40
+  ],
+  "expect": {
+   "gap_cm": 45.0,
+   "first_nail_cm": 45.0,
+   "frames_width_cm": 120,
+   "verdict": "a classic row"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   300,
+   5,
+   40
+  ],
+  "expect": {
+   "gap_cm": 16.7,
+   "first_nail_cm": 16.7,
+   "frames_width_cm": 200,
+   "verdict": "a tight gallery"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   200,
+   2,
+   50
+  ],
+  "expect": {
+   "gap_cm": 33.3,
+   "first_nail_cm": 33.3,
+   "frames_width_cm": 100,
+   "verdict": "a classic row"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   500,
+   4,
+   60
+  ],
+  "expect": {
+   "gap_cm": 52.0,
+   "first_nail_cm": 52.0,
+   "frames_width_cm": 240,
+   "verdict": "a classic row"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   120,
+   3,
+   30
+  ],
+  "expect": {
+   "gap_cm": 7.5,
+   "first_nail_cm": 7.5,
+   "frames_width_cm": 90,
+   "verdict": "a tight gallery"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   800,
+   6,
+   50
+  ],
+  "expect": {
+   "gap_cm": 71.4,
+   "first_nail_cm": 71.4,
+   "frames_width_cm": 300,
+   "verdict": "sparse - add a frame"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   150,
+   1,
+   30
+  ],
+  "expect": {
+   "gap_cm": 60.0,
+   "first_nail_cm": 60.0,
+   "frames_width_cm": 30,
+   "verdict": "a classic row"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   1000,
+   10,
+   30
+  ],
+  "expect": {
+   "gap_cm": 63.6,
+   "first_nail_cm": 63.6,
+   "frames_width_cm": 300,
+   "verdict": "sparse - add a frame"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   250,
+   8,
+   20
+  ],
+  "expect": {
+   "gap_cm": 10.0,
+   "first_nail_cm": 10.0,
+   "frames_width_cm": 160,
+   "verdict": "a tight gallery"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   180,
+   4,
+   35
+  ],
+  "expect": {
+   "gap_cm": 8.0,
+   "first_nail_cm": 8.0,
+   "frames_width_cm": 140,
+   "verdict": "a tight gallery"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   600,
+   3,
+   80
+  ],
+  "expect": {
+   "gap_cm": 90.0,
+   "first_nail_cm": 90.0,
+   "frames_width_cm": 240,
+   "verdict": "sparse - add a frame"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   90,
+   2,
+   25
+  ],
+  "expect": {
+   "gap_cm": 13.3,
+   "first_nail_cm": 13.3,
+   "frames_width_cm": 50,
+   "verdict": "a tight gallery"
+  }
+ },
+ {
+  "card": "spacing",
+  "args": [
+   0,
+   3,
+   40
+  ],
+  "error": "positive"
+ },
+ {
+  "card": "spacing",
+  "args": [
+   300,
+   0,
+   40
+  ],
+  "error": "positive"
+ },
+ {
+  "card": "spacing",
+  "args": [
+   300,
+   2.5,
+   40
+  ],
+  "error": "whole frames"
+ },
+ {
+  "card": "spacing",
+  "args": [
+   100,
+   5,
+   40
+  ],
+  "error": "do not fit"
+ },
+ {
+  "card": "spacing",
+  "args": [
+   300,
+   3,
+   0
+  ],
+  "error": "positive"
+ },
+ {
+  "card": "spacing",
+  "args": [
+   3000,
+   3,
+   40
+  ],
+  "error": "under 20 m"
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   40,
+   5
+  ],
+  "expect": {
+   "nail_cm": 160.0,
+   "top_cm": 165.0,
+   "verdict": "the eye-level sweet spot"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   60,
+   10
+  ],
+  "expect": {
+   "nail_cm": 165.0,
+   "top_cm": 175.0,
+   "verdict": "the eye-level sweet spot"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   30,
+   3
+  ],
+  "expect": {
+   "nail_cm": 157.0,
+   "top_cm": 160.0,
+   "verdict": "the eye-level sweet spot"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   100,
+   20
+  ],
+  "expect": {
+   "nail_cm": 175.0,
+   "top_cm": 195.0,
+   "verdict": "a high hang - check the ceiling"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   50,
+   0
+  ],
+  "expect": {
+   "nail_cm": 170.0,
+   "top_cm": 170.0,
+   "verdict": "the eye-level sweet spot"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   80,
+   15
+  ],
+  "expect": {
+   "nail_cm": 170.0,
+   "top_cm": 185.0,
+   "verdict": "the eye-level sweet spot"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   25,
+   2
+  ],
+  "expect": {
+   "nail_cm": 155.5,
+   "top_cm": 157.5,
+   "verdict": "the eye-level sweet spot"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   120,
+   30
+  ],
+  "expect": {
+   "nail_cm": 175.0,
+   "top_cm": 205.0,
+   "verdict": "a high hang - check the ceiling"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   70,
+   8
+  ],
+  "expect": {
+   "nail_cm": 172.0,
+   "top_cm": 180.0,
+   "verdict": "a high hang - check the ceiling"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   200,
+   40
+  ],
+  "expect": {
+   "nail_cm": 205.0,
+   "top_cm": 245.0,
+   "verdict": "a high hang - check the ceiling"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   90,
+   12
+  ],
+  "expect": {
+   "nail_cm": 178.0,
+   "top_cm": 190.0,
+   "verdict": "a high hang - check the ceiling"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   35,
+   4
+  ],
+  "expect": {
+   "nail_cm": 158.5,
+   "top_cm": 162.5,
+   "verdict": "the eye-level sweet spot"
+  }
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   0,
+   5
+  ],
+  "error": "positive"
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   40,
+   -2
+  ],
+  "error": "zero or more"
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   40,
+   40
+  ],
+  "error": "less than"
+ },
+ {
+  "card": "hangHeight",
+  "args": [
+   300,
+   5
+  ],
+  "error": "under 250"
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   300,
+   2,
+   2,
+   1
+  ],
+  "expect": {
+   "frames": 5,
+   "frames_width_cm": 150,
+   "required_cm": 198,
+   "fits": true,
+   "verdict": "fits with equal 8 cm gaps"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   200,
+   2,
+   2,
+   1
+  ],
+  "expect": {
+   "frames": 5,
+   "frames_width_cm": 150,
+   "required_cm": 198,
+   "fits": true,
+   "verdict": "fits with equal 8 cm gaps"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   500,
+   4,
+   3,
+   2
+  ],
+  "expect": {
+   "frames": 9,
+   "frames_width_cm": 270,
+   "required_cm": 350,
+   "fits": true,
+   "verdict": "fits with equal 8 cm gaps"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   150,
+   1,
+   1,
+   1
+  ],
+  "expect": {
+   "frames": 3,
+   "frames_width_cm": 100,
+   "required_cm": 132,
+   "fits": true,
+   "verdict": "fits with equal 8 cm gaps"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   100,
+   1,
+   1,
+   0
+  ],
+  "expect": {
+   "frames": 2,
+   "frames_width_cm": 50,
+   "required_cm": 74,
+   "fits": true,
+   "verdict": "fits with equal 8 cm gaps"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   800,
+   5,
+   4,
+   3
+  ],
+  "expect": {
+   "frames": 12,
+   "frames_width_cm": 370,
+   "required_cm": 474,
+   "fits": true,
+   "verdict": "fits with equal 8 cm gaps"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   120,
+   0,
+   2,
+   1
+  ],
+  "expect": {
+   "frames": 3,
+   "frames_width_cm": 110,
+   "required_cm": 142,
+   "fits": false,
+   "verdict": "too wide - trim a frame"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   60,
+   1,
+   0,
+   0
+  ],
+  "expect": {
+   "frames": 1,
+   "frames_width_cm": 20,
+   "required_cm": 36,
+   "fits": true,
+   "verdict": "fits with equal 8 cm gaps"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   250,
+   3,
+   1,
+   1
+  ],
+  "expect": {
+   "frames": 5,
+   "frames_width_cm": 140,
+   "required_cm": 188,
+   "fits": true,
+   "verdict": "fits with equal 8 cm gaps"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   400,
+   2,
+   4,
+   2
+  ],
+  "expect": {
+   "frames": 8,
+   "frames_width_cm": 260,
+   "required_cm": 332,
+   "fits": true,
+   "verdict": "fits with equal 8 cm gaps"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   90,
+   0,
+   1,
+   1
+  ],
+  "expect": {
+   "frames": 2,
+   "frames_width_cm": 80,
+   "required_cm": 104,
+   "fits": false,
+   "verdict": "too wide - trim a frame"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   1000,
+   10,
+   5,
+   4
+  ],
+  "expect": {
+   "frames": 19,
+   "frames_width_cm": 550,
+   "required_cm": 710,
+   "fits": true,
+   "verdict": "fits with equal 8 cm gaps"
+  }
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   0,
+   2,
+   2,
+   1
+  ],
+  "error": "positive"
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   300,
+   0,
+   0,
+   0
+  ],
+  "error": "at least one"
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   300,
+   2.5,
+   0,
+   0
+  ],
+  "error": "whole frames"
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   300,
+   -1,
+   0,
+   0
+  ],
+  "error": "zero or more"
+ },
+ {
+  "card": "rowFit",
+  "args": [
+   300,
+   11,
+   0,
+   0
+  ],
+  "error": "under 11"
+ }
+]
