@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery math - even spacing, hang height, row fit</title>
+<style>
+  :root { --ink:#211a0c; --accent:#96751f; --paper:#faf9f5; --card:#ffffff; --line:#e2dcca; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); }
+  header { padding:2rem 1.25rem 1rem; max-width:960px; margin:0 auto; }
+  h1 { font-size:1.9rem; margin:0 0 .35rem; }
+  header p { margin:.25rem 0; color:#4e4429; max-width:46rem; line-height:1.45; }
+  .norms { font-size:.9rem; color:#5a4d2c; margin-top:.6rem; }
+  main { max-width:960px; margin:0 auto; padding:0 1.25rem 3rem; display:grid; gap:1.25rem; }
+  @media (min-width:820px){ main { grid-template-columns:1fr 1fr 1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:1.1rem 1.1rem 1.25rem; }
+  .card h2 { font-size:1.15rem; margin:.1rem 0 .5rem; }
+  .card p.desc { font-size:.9rem; color:#5a4d2c; margin:.2rem 0 .8rem; line-height:1.4; }
+  label { display:block; font-size:.85rem; margin:.55rem 0 .15rem; color:#423921; }
+  input, select { width:100%; padding:.45rem .5rem; font-size:1rem; border:1px solid var(--line); border-radius:6px; font-family:inherit; background:#fff; }
+  button { margin-top:.8rem; width:100%; padding:.55rem; font-size:1rem; font-family:inherit; background:var(--accent); color:#fff; border:0; border-radius:6px; cursor:pointer; }
+  button:hover { background:#755b17; }
+  .out { margin-top:.9rem; font-size:.95rem; line-height:1.5; min-height:3.2rem; }
+  .out .big { font-size:1.35rem; font-weight:bold; }
+  .band { display:inline-block; margin-top:.35rem; padding:.15rem .55rem; border-radius:999px; background:#eee4c6; color:#6e5616; font-size:.82rem; }
+  .err { color:#a02323; }
+  footer { max-width:960px; margin:0 auto; padding:0 1.25rem 2.5rem; font-size:.85rem; color:#7b6d46; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Gallery math</h1>
+  <p>A crooked row of frames ends with extra holes in the plaster. Space the row evenly, put the nail at eye level on the first try, and check the mixed set against the wall. Exact arithmetic, every borrowed number labeled.</p>
+  <p class="norms">Labeled norms: eye level 145 cm, target gap 8 cm, standard frame widths small 20 / medium 30 / large 50 cm. Gaps and heights round to 0.1 cm.</p>
+</header>
+<main>
+  <section class="card" id="space">
+    <h2>Even spacing</h2>
+    <p class="desc">Wall, frame count and frame width become an exact gap - frames plus the two ends.</p>
+    <label for="s-w">Wall width (cm)</label>
+    <input id="s-w" type="number" step="1" min="1" value="300">
+    <label for="s-n">Frames</label>
+    <input id="s-n" type="number" step="1" min="1" value="3">
+    <label for="s-f">Frame width (cm)</label>
+    <input id="s-f" type="number" step="1" min="1" value="40">
+    <button id="s-go">Space the row</button>
+    <div class="out" id="s-out"></div>
+  </section>
+
+  <section class="card" id="height">
+    <h2>Hang height</h2>
+    <p class="desc">Frame height and hanger drop become the nail height for an eye-level hang.</p>
+    <label for="h-f">Frame height (cm)</label>
+    <input id="h-f" type="number" step="1" min="1" value="40">
+    <label for="h-d">Hanger drop (cm)</label>
+    <input id="h-d" type="number" step="0.5" min="0" value="5">
+    <button id="h-go">Mark the nail</button>
+    <div class="out" id="h-out"></div>
+  </section>
+
+  <section class="card" id="fit">
+    <h2>Row fit</h2>
+    <p class="desc">A mixed set of small, medium and large frames checked against the wall.</p>
+    <label for="f-w">Wall width (cm)</label>
+    <input id="f-w" type="number" step="1" min="1" value="300">
+    <label for="f-s">Small frames (20 cm)</label>
+    <input id="f-s" type="number" step="1" min="0" value="2">
+    <label for="f-m">Medium frames (30 cm)</label>
+    <input id="f-m" type="number" step="1" min="0" value="2">
+    <label for="f-l">Large frames (50 cm)</label>
+    <input id="f-l" type="number" step="1" min="0" value="1">
+    <button id="f-go">Check the fit</button>
+    <div class="out" id="f-out"></div>
+  </section>
+</main>
+<footer>
+  Built by the app factory. <a href="index.html">About</a> &middot; <a href="https://github.com/iLanis-agent/gallerymath">Source</a>
+</footer>
+<script src="engine.js"></script>
+<script>
+(function () {
+  'use strict';
+  var M = window.GalleryMath;
+  function $(id){ return document.getElementById(id); }
+  function num(id){ return parseFloat($(id).value); }
+  function show(el, html){ el.classList.remove('err'); el.innerHTML = html; }
+  function fail(el, msg){ el.classList.add('err'); el.textContent = msg; }
+
+  $('s-go').addEventListener('click', function () {
+    var out = $('s-out');
+    try {
+      var r = M.spacing(num('s-w'), num('s-n'), num('s-f'));
+      show(out, '<span class="big">' + r.gap_cm + ' cm</span> gaps' +
+        '<br>first nail ' + r.first_nail_cm + ' cm from the edge, ' + r.frames_width_cm + ' cm of frames' +
+        '<br><span class="band">' + r.verdict + '</span>');
+    } catch (e) { fail(out, e.message); }
+  });
+
+  $('h-go').addEventListener('click', function () {
+    var out = $('h-out');
+    try {
+      var r = M.hangHeight(num('h-f'), num('h-d'));
+      show(out, 'nail at <span class="big">' + r.nail_cm + ' cm</span>' +
+        '<br>top of the frame at ' + r.top_cm + ' cm' +
+        '<br><span class="band">' + r.verdict + '</span>');
+    } catch (e) { fail(out, e.message); }
+  });
+
+  $('f-go').addEventListener('click', function () {
+    var out = $('f-out');
+    try {
+      var r = M.rowFit(num('f-w'), num('f-s'), num('f-m'), num('f-l'));
+      show(out, r.frames + ' frames, <span class="big">' + r.required_cm + ' cm</span> needed' +
+        '<br>' + r.frames_width_cm + ' cm of frames plus equal gaps' +
+        '<br><span class="band">' + r.verdict + '</span>');
+    } catch (e) { fail(out, e.message); }
+  });
+})();
+</script>
+</body>
+</html>
